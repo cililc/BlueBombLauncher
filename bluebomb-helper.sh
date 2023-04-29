@@ -151,24 +151,24 @@ else
 fi
 printf "* Detected init system: %s\n\n" "$init"
 
-download() {
-    sc 1 "Prerequisites"
-    [[ -e ./bluebomb/bluebomb-$arch ]] && printf "BlueBomb executable exists. Not downloading.\n" && cd bluebomb && return || true
-    printf "* Downloading BlueBomb... "
-    task="Download and extract BlueBomb"
-    ## download zip from github
-    mkdir -p bluebomb && cd bluebomb || false
-    wget -q --secure-protocol=TLSv1_2 "https://github.com/Fullmetal5/bluebomb/releases/download/1.5/bluebomb1.5.zip" -O bluebomb.zip
-    printf "Success!\n\n* Unpacking BlueBomb... "
-    unzip -q bluebomb.zip
-    rm bluebomb.zip
-    wget -q --secure-protocol=TLSv1_2 "https://wii.guide/images/bluebomb.png"
-    cd ~/Desktop    
-    wget -q --secure-protocol=TLSv1_2 "https://github.com/mcneproj/BlueBombLauncher/releases/download/0.1/bluebomb.desktop"
-    chmod +x bluebomb.desktop
-    sudo cp $HOME/bluebomb/bluebomb.png /usr/share/icons/default
-    cd $HOME/bluebomb    
-    printf "Success!\n\n"
+  download() {
+sc 1 "Prerequisites"
+[[ -e ./bluebomb/bluebomb-$arch ]] && printf "BlueBomb executable exists. Not downloading.\n" && cd bluebomb && return || true
+printf "* Downloading BlueBomb... "
+task="Download and extract BlueBomb"
+## download zip from github
+mkdir -p bluebomb && cd bluebomb || false
+wget -q --secure-protocol=TLSv1_2 "https://github.com/Fullmetal5/bluebomb/releases/download/1.5/bluebomb1.5.zip" -O bluebomb.zip
+printf "Success!\n\n* Unpacking BlueBomb... "
+unzip -q bluebomb.zip
+rm bluebomb.zip
+wget -q --secure-protocol=TLSv1_2 "https://wii.guide/images/bluebomb.png"
+cd ~/Desktop    
+wget -q --secure-protocol=TLSv1_2 "https://github.com/jamesmc1209/BlueBombLauncher/releases/download/0.1/bluebomb.desktop"
+chmod +x bluebomb.desktop
+sudo cp $HOME/bluebomb/bluebomb.png /usr/share/icons/default
+cd $HOME/bluebomb    
+printf "Success!\n\n"
 }
 
 findinfos() {
